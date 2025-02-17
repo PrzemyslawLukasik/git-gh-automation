@@ -10,8 +10,8 @@ def api_request_context(
     playwright: Playwright,
 ) -> Generator[APIRequestContext, None, None]:
     headers = {
-        "Content-Type": "application/json",
-        "Accept": "application/json",
+        "X-GitHub-Api-Version": "2022-11-28",
+        "Accept": "application/vnd.github+json",
         "Authorization": f"Bearer {os.environ['API_SECRET']}",
     }
     yield playwright.request.new_context(
