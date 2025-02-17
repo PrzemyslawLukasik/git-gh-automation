@@ -1,4 +1,3 @@
-import json
 import os
 from typing import Optional
 
@@ -23,7 +22,7 @@ class Repositories:
     @staticmethod
     def create_repository(
         api_request_context: APIRequestContext, data: dict
-    ) -> tuple[int, Optional[int, str]]:
+    ) -> tuple[int, Optional[tuple[int, str]]]:
         response: APIResponse = api_request_context.post("/user/repos", data=data)
         if response.ok:
             return response.status, response.body[0]["id"], response.body[0]["name"]
