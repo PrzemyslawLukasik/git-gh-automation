@@ -34,8 +34,7 @@ def generate_new_repo_data_ui() -> Generator[dict, None, None]:
 def generate_new_repo_data_api() -> Generator[dict, None, None]:
     generated_data = generate_string()
     yield {
-        "full_name": f"Test Repo {generated_data}",
-        "is_private": False,
-        "scm": "git",
-        "project": {"key": "TES"},
+        "name": f"Test-Repo-{generated_data}",
+        "description": f"Test Repo {generated_data} description",
+        "private": False,
     }

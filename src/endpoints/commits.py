@@ -13,9 +13,21 @@ class Commits:
         api_request_context: APIRequestContext, repo_name: str
     ) -> tuple[int, Optional[list[json]]]:
         response: APIResponse = api_request_context.get(
-            f"/repos/{os.environ['USER']}/{repo_name}/commits"
+            f"/repos/{os.environ['API_USER']}/{repo_name}/commits"
         )
         if response.ok:
-            return response.status, response.body
+            return response.status, response
+        else:
+            return response.status, None
+
+    @staticmethod
+    def get_commit(
+        api_request_context: APIRequestContext, repo_name: str, ref: str
+    ) -> tuple[int, Optional[APIResponse]]:
+        response: APIResponse = api_request_context.get(
+            f"repos/{os.environ['API_USER']}/{repo_name}/commits/{ref}"
+        )
+        if response.ok:
+            return response.status, response
         else:
             return response.status, None
