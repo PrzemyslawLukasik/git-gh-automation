@@ -31,4 +31,5 @@ def repo_create_delete(
     data = next(generate_new_repo_data_api())
     status, repo_name = Repositories().create_repository(api_request_context, data)
     yield repo_name
-    Repositories().delete_repository(api_request_context, repo_name)
+    status = Repositories().delete_repository(api_request_context, repo_name)
+    assert 204 == status, f"Repository not deleted!: {status}"

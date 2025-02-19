@@ -37,4 +37,5 @@ def generate_new_repo_data_api() -> Generator[dict, None, None]:
         "name": f"Test-Repo-{generated_data}",
         "description": f"Test Repo {generated_data} description",
         "private": False,
+        "auto_init": True,
     }

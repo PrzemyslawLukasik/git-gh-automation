@@ -32,6 +32,6 @@ class Repositories:
     @staticmethod
     def delete_repository(api_request_context: APIRequestContext, name: str) -> int:
         response: APIResponse = api_request_context.delete(
-            f"/repos/{os.environ['USER']}/{name}"
+            f"/repos/{os.environ['API_USER']}/{name}"
         )
         return response.status
