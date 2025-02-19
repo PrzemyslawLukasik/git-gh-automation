@@ -32,6 +32,7 @@ def test_clone_repository(repo_create_delete: str) -> None:
 
 
 @pytest.mark.git
+@pytest.mark.files
 def test_add_files_and_commit(repo_create_delete: str) -> None:
     # Prepare data
     repo_name: str = repo_create_delete
@@ -66,6 +67,7 @@ def test_add_files_and_commit(repo_create_delete: str) -> None:
 
 
 @pytest.mark.git
+@pytest.mark.push
 def test_push_changes_to_remote(repo_create_delete: str) -> None:
     # Prepare data
     repo_name: str = repo_create_delete
@@ -116,6 +118,7 @@ def test_push_changes_to_remote(repo_create_delete: str) -> None:
 
 @pytest.mark.git
 @pytest.mark.API
+@pytest.mark.branch
 def test_create_branch(api_request_context, repo_create_delete) -> None:
     # Prepare data
     repo_name: str = repo_create_delete

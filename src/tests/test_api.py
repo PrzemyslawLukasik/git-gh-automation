@@ -7,7 +7,7 @@ from src.fixtures.api_fixture import api_request_context, repo_create_delete
 
 
 @pytest.mark.API
-def test_get_public_repositories(api_request_context: APIRequestContext) -> None:
+def test_get_repositories(api_request_context: APIRequestContext) -> None:
     req = Repositories().user_repositories_list(api_request_context)
     _, response = req
     assert response.json()[0]["name"], f"REQ = {req}"
