@@ -13,4 +13,4 @@ class RepositoryPage(BasePage):
 
     def open_code_page(self) -> None:
         self.top_bar_menu.click_on_code_link()
-        self.repo_code_page.is_opened()
+        self.repo_code_page.is_open()
