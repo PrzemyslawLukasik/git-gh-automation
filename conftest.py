@@ -53,14 +53,15 @@ def pytest_runtest_makereport(item):
     pytest_html = item.config.pluginmanager.getplugin("html")
     outcome = yield
     screenshot_path = ""
-    # screen_file = ""
     report = outcome.get_result()
 
     setattr(item, "rep_" + report.when, report)
     extras = getattr(report, "extras", [])
-    if report.when == "call":
+    if report.when == "call" and "page" in item.funcargs:
         if report.failed and "page" in item.funcargs:
             page = item.funcargs["page"]
+            tracing_path = item.config.option.tracing_path + "/" + item.name + ".zip"
+            page.context.tracing.stop(path=tracing_path)
             screenshot_path = item.config.option.screenshot_path
             if screenshot_path:
                 screenshots = Screenshots(

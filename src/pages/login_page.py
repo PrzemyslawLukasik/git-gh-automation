@@ -42,9 +42,7 @@ class LoginPage(BasePage):
         self.locators = LoginPageLocator(self.page)
         self.statics = LoginPageStatics()
 
-        self.url = (
-            "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fdashboard"
-        )
+        self.url = "/login?return_to=https%3A%2F%2Fgithub.com%2Fdashboard"
 
     def is_login_page_opened(self) -> bool:
         expect(self.locators.sign_in_header()).to_be_visible(timeout=5_000)

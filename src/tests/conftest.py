@@ -8,6 +8,7 @@ from playwright.sync_api import (
 )
 from typing_extensions import Generator
 
+from src.pages.dashboard import DashboardPage
 from src.pages.login_page import LoginPage
 from src.pages.new_repository_creation_page import NewRepositoryPage
 from src.pages.repository_page.repo_code_page import RepoCodePage
@@ -69,3 +70,9 @@ def repo_code_page(page: Page) -> Generator[RepoCodePage, None, None]:
 def repository_page(page: Page) -> Generator[RepositoryPage, None, None]:
     repository_page = RepositoryPage(page)
     yield repository_page
+
+
+@pytest.fixture
+def dashboard_page(page: Page) -> Generator[DashboardPage, None, None]:
+    dashboard_page = DashboardPage(page)
+    yield dashboard_page

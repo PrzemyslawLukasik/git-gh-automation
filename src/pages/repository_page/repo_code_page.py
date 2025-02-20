@@ -13,6 +13,9 @@ class RepoCodePageLocators:
     def code_button(self) -> Locator:
         return self.page.get_by_role("button", name="Code")
 
+    def repo_title(self, name: str) -> Locator:
+        return self.page.locator("#repo-title-component").get_by_role("link", name=name)
+
 
 class RepoCodePage(BasePage):
     def __init__(self, page: Page) -> None:
@@ -22,3 +25,6 @@ class RepoCodePage(BasePage):
 
     def is_open(self) -> bool:
         return not expect(self.locators.code_button()).to_be_visible(timeout=5_000)
+
+    def is_correct_repo_open(self, name: str) -> bool:
+        expect(self.locators.repo_title(name)).to_be_visible(timeout=5_000)

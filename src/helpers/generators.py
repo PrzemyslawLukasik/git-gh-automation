@@ -27,7 +27,9 @@ def generate_new_repo_data_ui() -> Generator[dict, None, None]:
     generated_data = generate_string()
     yield {
         "repository_name": "Repo_name_" + generated_data,
-        "branch_name": "master",
+        "description": f"Test Repo {generated_data} description",
+        "private": True,
+        "auto_init": True,
     }
 
 
