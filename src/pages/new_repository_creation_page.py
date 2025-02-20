@@ -37,7 +37,7 @@ class NewRepositoryLocators:
 @dataclass
 class NewRepositoryStatics:
     repository_mname = next(generate_new_repo_data_ui())["repository_name"]
-    description = next(generate_string())
+    description = generate_string()
 
 
 class NewRepositoryPage(BasePage):
