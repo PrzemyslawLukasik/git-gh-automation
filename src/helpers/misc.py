@@ -1,6 +1,5 @@
-def filter_names_branches(branches_list: list[dict], target: str) -> bool:
+def filter_names(branches_list: list[dict], target: str) -> bool:
     for item in branches_list:
-        if target in item.keys():
+        if target in item.values():
             return True
-        else:
-            return False
+    return False

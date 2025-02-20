@@ -12,7 +12,7 @@ from src.helpers.git_helper import (
     create_repo_folder,
     push_changes,
 )
-from src.helpers.misc import filter_names_branches
+from src.helpers.misc import filter_names
 
 
 @pytest.mark.git
